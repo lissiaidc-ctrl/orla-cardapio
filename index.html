@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orla Bar e Restaurante — Cardápio Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --preto: #171310;
+  --marrom: #2A1C14;
+  --dourado: #E99A2E;
+  --ambar: #F2A83B;
+  --creme: #F3E1BF;
+  --branco: #FFF4DD;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--preto);
+  color: var(--creme);
+  font-family: 'Inter', sans-serif;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ===== CAPA ===== */
+.capa {
+  min-height: 100vh;
+  background: var(--preto);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 48px 24px;
+}
+.capa-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 50% at 50% 0%, rgba(233,154,46,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 90% 50% at 50% 100%, rgba(42,28,20,0.9) 0%, transparent 80%);
+}
+
+.capa-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  z-index: 2;
+}
+.logo-orla {
+  font-family: 'Dancing Script', cursive;
+  font-size: 86px;
+  color: var(--branco);
+  line-height: 1;
+  text-shadow: 0 3px 24px rgba(0,0,0,0.6);
+}
+.logo-sub {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 7px;
+  color: var(--creme);
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.capa-mid {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 48px;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 260px;
+}
+.divider-line { flex: 1; height: 1px; background: var(--dourado); opacity: 0.45; }
+.divider-dot { width: 5px; height: 5px; background: var(--dourado); border-radius: 50%; flex-shrink: 0; }
+
+.capa-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--branco);
+  letter-spacing: 10px;
+  text-align: center;
+}
+.capa-local {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--dourado);
+  text-transform: uppercase;
+}
+.capa-slogan {
+  font-family: 'Dancing Script', cursive;
+  font-size: 24px;
+  color: var(--ambar);
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 6px;
+}
+.capa-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  opacity: 0.7;
+  margin-top: 8px;
+}
+
+/* ===== SEPARADOR ===== */
+.sep { height: 5px; background: linear-gradient(90deg, var(--marrom), var(--dourado), var(--marrom)); }
+
+/* ===== CABEÇALHO INTERNO ===== */
+.ph {
+  background: var(--marrom);
+  padding: 28px 24px 20px;
+  position: relative;
+}
+.ph::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+}
+.ph-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.ph-logo-name { font-family: 'Dancing Script', cursive; font-size: 26px; color: var(--creme); }
+.ph-logo-sub { font-size: 8px; letter-spacing: 3px; color: var(--dourado); text-transform: uppercase; font-weight: 600; }
+.ph-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--branco);
+  letter-spacing: 2px;
+}
+.ph-title span { color: var(--dourado); }
+.ph-wave { margin-top: 10px; }
+
+/* ===== SEÇÃO / ITENS ===== */
+.sec { padding: 24px 24px 0; }
+.sec-label { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.sec-icon {
+  width: 30px; height: 30px;
+  background: var(--dourado);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; flex-shrink: 0;
+}
+.sec-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--creme);
+}
+.sec-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--dourado), transparent); opacity: 0.3; }
+
+.subsec {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--dourado);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(233,154,46,0.2);
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(243,225,191,0.07);
+  gap: 6px;
+}
+.item:last-child { border-bottom: none; }
+.item-n { font-size: 15px; color: var(--branco); flex: 1; line-height: 1.3; }
+.item-d { flex: 1; border-bottom: 1px dotted rgba(233,154,46,0.2); min-width: 16px; position: relative; top: -3px; }
+.item-p { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--dourado); white-space: nowrap; flex-shrink: 0; }
+
+.item.dest {
+  background: rgba(233,154,46,0.08);
+  border: 1px solid rgba(233,154,46,0.22);
+  border-radius: 8px;
+  padding: 12px 12px;
+  margin: 4px 0;
+}
+.item.dest .item-n { color: var(--ambar); font-weight: 600; }
+.item.dest .item-p { font-size: 17px; color: var(--ambar); }
+
+.gap { height: 20px; }
+.gap-sm { height: 10px; }
+
+/* ===== RODAPÉ ===== */
+.footer {
+  margin-top: 40px;
+  background: var(--marrom);
+  padding: 30px 24px;
+  text-align: center;
+  position: relative;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+}
+.footer-logo { font-family: 'Dancing Script', cursive; font-size: 40px; color: var(--creme); }
+.footer-sub { font-size: 8px; letter-spacing: 4px; color: var(--dourado); text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
+.footer-info { font-size: 14px; color: var(--creme); opacity: 0.75; line-height: 2; }
+.footer-info strong { color: var(--dourado); }
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="capa">
+  <div class="capa-bg"></div>
+
+  <div class="capa-logo">
+    <svg width="80" height="50" viewBox="0 0 80 52" fill="none">
+      <path d="M26 11 Q28 9 30 11" stroke="#E99A2E" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M38 7 Q40 5 42 7" stroke="#E99A2E" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M50 10 Q52 8 54 10" stroke="#E99A2E" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      <path d="M14 32 A26 26 0 0 1 66 32 Z" fill="#E99A2E"/>
+      <line x1="6" y1="32" x2="74" y2="32" stroke="#E99A2E" stroke-width="1.5" opacity="0.5"/>
+      <rect x="36" y="34" width="8" height="1.5" rx="0.75" fill="#F2A83B" opacity="0.7"/>
+      <rect x="30" y="37" width="20" height="1.5" rx="0.75" fill="#F2A83B" opacity="0.5"/>
+      <rect x="25" y="40" width="30" height="1.5" rx="0.75" fill="#F2A83B" opacity="0.3"/>
+    </svg>
+    <div class="logo-orla">Orla</div>
+    <svg width="150" height="16" viewBox="0 0 150 16" fill="none" style="margin-top:-4px">
+      <path d="M4 8 Q20 2 37 8 Q55 14 75 8 Q95 2 113 8 Q130 14 146 8"
+            stroke="#E99A2E" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="logo-sub">Bar &amp; Restaurante</div>
+  </div>
+
+  <div class="capa-mid">
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-dot"></div>
+      <div class="divider-line"></div>
+    </div>
+    <div class="capa-titulo">CARDÁPIO</div>
+    <div class="capa-local">📍 Balneário Nonatão</div>
+    <div class="capa-slogan">Boa comida,<br>bons momentos!</div>
+    <div class="capa-icons">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><path d="M9 3v7H7V3h2zm4 0v7h-2V3h2zM8 13a3 3 0 006 0H8zm2 6v-3h2v3h-2z" fill="#E99A2E"/></svg>
+      <svg width="1" height="22"><line x1=".5" y1="0" x2=".5" y2="22" stroke="#E99A2E" stroke-opacity=".4"/></svg>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7zm0 4a3 3 0 100 6 3 3 0 000-6z" fill="#E99A2E"/></svg>
+      <svg width="1" height="22"><line x1=".5" y1="0" x2=".5" y2="22" stroke="#E99A2E" stroke-opacity=".4"/></svg>
+      <svg width="24" height="16" viewBox="0 0 24 16" fill="none">
+        <path d="M2 6 Q6 2 12 4 Q18 6 22 3" stroke="#E99A2E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <path d="M2 11 Q6 7 12 9 Q18 11 22 8" stroke="#E99A2E" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".5"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- BEBIDAS & DRINKS -->
+<div>
+  <div class="ph">
+    <div class="ph-logo">
+      <svg width="28" height="20" viewBox="0 0 80 52" fill="none">
+        <path d="M14 32 A26 26 0 0 1 66 32 Z" fill="#E99A2E"/>
+        <line x1="6" y1="32" x2="74" y2="32" stroke="#E99A2E" stroke-width="1.5" opacity="0.5"/>
+        <rect x="36" y="34" width="8" height="1.5" rx="0.75" fill="#F2A83B" opacity="0.7"/>
+      </svg>
+      <div>
+        <div class="ph-logo-name">Orla</div>
+        <div class="ph-logo-sub">Bar &amp; Restaurante</div>
+      </div>
+    </div>
+    <div class="ph-title">BEBIDAS <span>&amp;</span> DRINKS</div>
+    <div class="ph-wave">
+      <svg width="100%" height="10" viewBox="0 0 300 10" preserveAspectRatio="none" fill="none">
+        <path d="M0 5 Q25 1 50 5 Q75 9 100 5 Q125 1 150 5 Q175 9 200 5 Q225 1 250 5 Q275 9 300 5"
+              stroke="#E99A2E" stroke-width="1" fill="none" opacity="0.35"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">
+      <div class="sec-icon">🍺</div>
+      <div class="sec-name">Cervejas</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="subsec">600 ml</div>
+    <div class="item"><span class="item-n">Heineken</span><div class="item-d"></div><span class="item-p">R$ 13,00</span></div>
+    <div class="item"><span class="item-n">Stella Artois</span><div class="item-d"></div><span class="item-p">R$ 12,00</span></div>
+    <div class="item"><span class="item-n">Original</span><div class="item-d"></div><span class="item-p">R$ 11,00</span></div>
+    <div class="item"><span class="item-n">Spaten</span><div class="item-d"></div><span class="item-p">R$ 11,00</span></div>
+    <div class="item"><span class="item-n">Skol</span><div class="item-d"></div><span class="item-p">R$ 10,00</span></div>
+    <div class="item"><span class="item-n">Budweiser</span><div class="item-d"></div><span class="item-p">R$ 12,00</span></div>
+    <div class="item"><span class="item-n">Stella Gold</span><div class="item-d"></div><span class="item-p">R$ 15,00</span></div>
+  </div>
+
+  <div class="gap"></div>
+
+  <div class="sec">
+    <div class="subsec">Longneck</div>
+    <div class="item"><span class="item-n">Corona</span><div class="item-d"></div><span class="item-p">R$ 10,00</span></div>
+    <div class="item"><span class="item-n">Stella Artois</span><div class="item-d"></div><span class="item-p">R$ 10,00</span></div>
+    <div class="item"><span class="item-n">Stella Gold</span><div class="item-d"></div><span class="item-p">R$ 10,00</span></div>
+  </div>
+
+  <div class="gap"></div>
+
+  <div class="sec">
+    <div class="sec-label">
+      <div class="sec-icon">🍹</div>
+      <div class="sec-name">Drinks</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="item"><span class="item-n">Aloha</span><div class="item-d"></div><span class="item-p">R$ 18,00</span></div>
+    <div class="item"><span class="item-n">Piña Colada</span><div class="item-d"></div><span class="item-p">R$ 20,00</span></div>
+    <div class="item"><span class="item-n">Espanhola</span><div class="item-d"></div><span class="item-p">R$ 18,00</span></div>
+    <div class="item"><span class="item-n">Caipirinha Tradicional</span><div class="item-d"></div><span class="item-p">R$ 15,00</span></div>
+    <div class="item"><span class="item-n">Drink Tropical de Morango</span><div class="item-d"></div><span class="item-p">R$ 18,00</span></div>
+    <div class="item"><span class="item-n">Kiwi Fresh</span><div class="item-d"></div><span class="item-p">R$ 18,00</span></div>
+    <div class="item"><span class="item-n">Cozumel</span><div class="item-d"></div><span class="item-p">R$ 16,00</span></div>
+    <div class="item"><span class="item-n">Red Sunset</span><div class="item-d"></div><span class="item-p">R$ 17,00</span></div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- PETISCOS -->
+<div>
+  <div class="ph">
+    <div class="ph-logo">
+      <svg width="28" height="20" viewBox="0 0 80 52" fill="none">
+        <path d="M14 32 A26 26 0 0 1 66 32 Z" fill="#E99A2E"/>
+        <line x1="6" y1="32" x2="74" y2="32" stroke="#E99A2E" stroke-width="1.5" opacity="0.5"/>
+        <rect x="36" y="34" width="8" height="1.5" rx="0.75" fill="#F2A83B" opacity="0.7"/>
+      </svg>
+      <div>
+        <div class="ph-logo-name">Orla</div>
+        <div class="ph-logo-sub">Bar &amp; Restaurante</div>
+      </div>
+    </div>
+    <div class="ph-title">PETIS<span>COS</span></div>
+    <div class="ph-wave">
+      <svg width="100%" height="10" viewBox="0 0 300 10" preserveAspectRatio="none" fill="none">
+        <path d="M0 5 Q25 1 50 5 Q75 9 100 5 Q125 1 150 5 Q175 9 200 5 Q225 1 250 5 Q275 9 300 5"
+              stroke="#E99A2E" stroke-width="1" fill="none" opacity="0.35"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">
+      <div class="sec-icon">🍤</div>
+      <div class="sec-name">Petiscos</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="item"><span class="item-n">Frango à Passarinho</span><div class="item-d"></div><span class="item-p">R$ 35,00</span></div>
+    <div class="item"><span class="item-n">Batata Frita Simples</span><div class="item-d"></div><span class="item-p">R$ 25,00</span></div>
+    <div class="item"><span class="item-n">Batata com Cheddar e Bacon</span><div class="item-d"></div><span class="item-p">R$ 35,00</span></div>
+    <div class="item"><span class="item-n">Tirinhas de Frango</span><div class="item-d"></div><span class="item-p">R$ 25,00</span></div>
+    <div class="item"><span class="item-n">Pastelzinho</span><div class="item-d"></div><span class="item-p">R$ 25,00</span></div>
+    <div class="item"><span class="item-n">Mini Salgados</span><div class="item-d"></div><span class="item-p">R$ 25,00</span></div>
+    <div class="item"><span class="item-n">Carne de Sol</span><div class="item-d"></div><span class="item-p">R$ 35,00</span></div>
+    <div class="item"><span class="item-n">Calabresa Acebolada</span><div class="item-d"></div><span class="item-p">R$ 25,00</span></div>
+    <div class="item dest"><span class="item-n">⭐ Peixe Frito</span><div class="item-d"></div><span class="item-p">R$ 60,00</span></div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<!-- REFEIÇÕES -->
+<div>
+  <div class="ph">
+    <div class="ph-logo">
+      <svg width="28" height="20" viewBox="0 0 80 52" fill="none">
+        <path d="M14 32 A26 26 0 0 1 66 32 Z" fill="#E99A2E"/>
+        <line x1="6" y1="32" x2="74" y2="32" stroke="#E99A2E" stroke-width="1.5" opacity="0.5"/>
+        <rect x="36" y="34" width="8" height="1.5" rx="0.75" fill="#F2A83B" opacity="0.7"/>
+      </svg>
+      <div>
+        <div class="ph-logo-name">Orla</div>
+        <div class="ph-logo-sub">Bar &amp; Restaurante</div>
+      </div>
+    </div>
+    <div class="ph-title">REFEI<span>ÇÕES</span></div>
+    <div class="ph-wave">
+      <svg width="100%" height="10" viewBox="0 0 300 10" preserveAspectRatio="none" fill="none">
+        <path d="M0 5 Q25 1 50 5 Q75 9 100 5 Q125 1 150 5 Q175 9 200 5 Q225 1 250 5 Q275 9 300 5"
+              stroke="#E99A2E" stroke-width="1" fill="none" opacity="0.35"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-label">
+      <div class="sec-icon">🍽️</div>
+      <div class="sec-name">Refeições</div>
+      <div class="sec-line"></div>
+    </div>
+    <div class="item"><span class="item-n">Baião de Dois</span><div class="item-d"></div><span class="item-p">R$ 35,00</span></div>
+    <div class="item"><span class="item-n">Filé de Frango à Parmegiana</span><div class="item-d"></div><span class="item-p">R$ 45,00</span></div>
+    <div class="item"><span class="item-n">Filé à Parmegiana</span><div class="item-d"></div><span class="item-p">R$ 50,00</span></div>
+    <div class="item"><span class="item-n">Escondidinho</span><div class="item-d"></div><span class="item-p">R$ 40,00</span></div>
+    <div class="item dest"><span class="item-n">⭐ Peixe Frito</span><div class="item-d"></div><span class="item-p">R$ 60,00</span></div>
+    <div class="item"><span class="item-n">Strogonoff</span><div class="item-d"></div><span class="item-p">R$ 45,00</span></div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-logo">Orla</div>
+    <div class="footer-sub">Bar &amp; Restaurante</div>
+    <div class="footer-info">
+      📍 Balneário Nonatão<br>
+      📱 WhatsApp: <strong>(11) 99299-7094</strong>
+    </div>
+    <svg width="140" height="14" viewBox="0 0 140 14" fill="none" style="margin-top:16px;opacity:.35">
+      <path d="M4 7 Q18 2 35 7 Q52 12 70 7 Q88 2 105 7 Q122 12 136 7"
+            stroke="#E99A2E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>
+
+</body>
+</html>
