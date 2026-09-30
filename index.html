@@ -182,6 +182,7 @@ body {
 }
 .item:last-child { border-bottom: none; }
 .item-n { font-size: 15px; color: var(--branco); flex: 1; line-height: 1.3; }
+.item-note { display: block; font-size: 11px; color: rgba(243,225,191,0.55); font-style: italic; margin-top: 2px; }
 .item-d { flex: 1; border-bottom: 1px dotted rgba(233,154,46,0.2); min-width: 16px; position: relative; top: -3px; }
 .item-p { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--dourado); white-space: nowrap; flex-shrink: 0; }
 
@@ -300,11 +301,12 @@ body {
     <div class="subsec">600 ml</div>
     <div class="item"><span class="item-n">Heineken</span><div class="item-d"></div><span class="item-p">R$ 13,00</span></div>
     <div class="item"><span class="item-n">Stella Artois</span><div class="item-d"></div><span class="item-p">R$ 13,00</span></div>
-    <div class="item"><span class="item-n">Original</span><div class="item-d"></div><span class="item-p">R$ 11,00</span></div>
+    <div class="item"><span class="item-n">Original</span><div class="item-d"></div><span class="item-p">R$ 12,00</span></div>
     <div class="item"><span class="item-n">Spaten</span><div class="item-d"></div><span class="item-p">R$ 11,00</span></div>
     <div class="item"><span class="item-n">Skol</span><div class="item-d"></div><span class="item-p">R$ 10,00</span></div>
-    <div class="item"><span class="item-n">Budweiser</span><div class="item-d"></div><span class="item-p">R$ 12,00</span></div>
     <div class="item"><span class="item-n">Stella Gold</span><div class="item-d"></div><span class="item-p">R$ 15,00</span></div>
+    <div class="item"><span class="item-n">Amstel</span><div class="item-d"></div><span class="item-p">R$ 12,00</span></div>
+    <div class="item"><span class="item-n">Amstel Ultra</span><div class="item-d"></div><span class="item-p">R$ 12,00</span></div>
   </div>
 
   <div class="gap"></div>
@@ -314,6 +316,7 @@ body {
     <div class="item"><span class="item-n">Corona</span><div class="item-d"></div><span class="item-p">R$ 10,00</span></div>
     <div class="item"><span class="item-n">Stella Artois</span><div class="item-d"></div><span class="item-p">R$ 10,00</span></div>
     <div class="item"><span class="item-n">Stella Gold</span><div class="item-d"></div><span class="item-p">R$ 10,00</span></div>
+    <div class="item"><span class="item-n">Petra Ultra</span><div class="item-d"></div><span class="item-p">R$ 8,00</span></div>
   </div>
 
   <div class="gap"></div>
@@ -330,8 +333,8 @@ body {
     <div class="item"><span class="item-n">Caipirinha Tradicional</span><div class="item-d"></div><span class="item-p">R$ 15,00</span></div>
     <div class="item"><span class="item-n">Drink Tropical de Morango</span><div class="item-d"></div><span class="item-p">R$ 18,00</span></div>
     <div class="item"><span class="item-n">Kiwi Fresh</span><div class="item-d"></div><span class="item-p">R$ 18,00</span></div>
-    <div class="item"><span class="item-n">Cozumel</span><div class="item-d"></div><span class="item-p">R$ 16,00</span></div>
-    <div class="item"><span class="item-n">Red Sunset</span><div class="item-d"></div><span class="item-p">R$ 17,00</span></div>
+    <div class="item"><span class="item-n">Cozumel</span><div class="item-d"></div><span class="item-p">R$ 25,00</span></div>
+    <div class="item"><span class="item-n">Red Sunset</span><div class="item-d"></div><span class="item-p">R$ 25,00</span></div>
   </div>
 </div>
 
@@ -372,7 +375,7 @@ body {
     <div class="item"><span class="item-n">Tirinhas de Frango</span><div class="item-d"></div><span class="item-p">R$ 25,00</span></div>
     <div class="item"><span class="item-n">Pastelzinho</span><div class="item-d"></div><span class="item-p">R$ 25,00</span></div>
     <div class="item"><span class="item-n">Mini Salgados</span><div class="item-d"></div><span class="item-p">R$ 25,00</span></div>
-    <div class="item"><span class="item-n">Carne de Sol</span><div class="item-d"></div><span class="item-p">R$ 35,00</span></div>
+    <div class="item"><span class="item-n">Carne de Sol <span class="item-note" style="display:inline">(porção)</span></span><div class="item-d"></div><span class="item-p">R$ 40,00</span></div>
     <div class="item"><span class="item-n">Calabresa Acebolada</span><div class="item-d"></div><span class="item-p">R$ 25,00</span></div>
     <div class="item dest"><span class="item-n">⭐ Peixe Frito</span><div class="item-d"></div><span class="item-p">R$ 60,00</span></div>
   </div>
@@ -409,12 +412,14 @@ body {
       <div class="sec-name">Refeições</div>
       <div class="sec-line"></div>
     </div>
-    <div class="item"><span class="item-n">Baião de Dois</span><div class="item-d"></div><span class="item-p">R$ 35,00</span></div>
-    <div class="item"><span class="item-n">Filé de Frango à Parmegiana</span><div class="item-d"></div><span class="item-p">R$ 45,00</span></div>
-    <div class="item"><span class="item-n">Filé à Parmegiana</span><div class="item-d"></div><span class="item-p">R$ 50,00</span></div>
+    <div class="item"><span class="item-n">Baião de Dois<span class="item-note">Serve duas pessoas</span></span><div class="item-d"></div><span class="item-p">R$ 50,00</span></div>
+    <div class="item"><span class="item-n">Filé de Frango à Parmegiana<span class="item-note">Serve de duas a três pessoas</span></span><div class="item-d"></div><span class="item-p">R$ 60,00</span></div>
+    <div class="item"><span class="item-n">Filé à Parmegiana<span class="item-note">Serve de duas a três pessoas</span></span><div class="item-d"></div><span class="item-p">R$ 70,00</span></div>
     <div class="item"><span class="item-n">Escondidinho</span><div class="item-d"></div><span class="item-p">R$ 40,00</span></div>
+    <div class="item"><span class="item-n">Carne de Sol <span class="item-note" style="display:inline">(refeição)</span></span><div class="item-d"></div><span class="item-p">R$ 60,00</span></div>
     <div class="item dest"><span class="item-n">⭐ Peixe Frito</span><div class="item-d"></div><span class="item-p">R$ 60,00</span></div>
-    <div class="item"><span class="item-n">Strogonoff</span><div class="item-d"></div><span class="item-p">R$ 45,00</span></div>
+    <div class="item dest"><span class="item-n">⭐ Peixe Frito <span class="item-note" style="display:inline">(com refeição)</span></span><div class="item-d"></div><span class="item-p">R$ 80,00</span></div>
+    <div class="item"><span class="item-n">Strogonoff<span class="item-note">Serve duas pessoas</span></span><div class="item-d"></div><span class="item-p">R$ 50,00</span></div>
   </div>
 
   <div class="footer">
